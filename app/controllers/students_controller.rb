@@ -1,4 +1,4 @@
-class TeamsController < ApplicationController
+class StudentsController < ApplicationController
   def index
     @students = Student.all
   end
@@ -6,6 +6,10 @@ class TeamsController < ApplicationController
 
   def new
     @team = team.new
+  end
+
+  def import
+    params[:file]
   end
 
   def create
