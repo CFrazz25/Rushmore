@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170419195250) do
     t.string   "gender",      null: false
     t.float    "gpa",         null: false
     t.integer  "teacher_id"
+    t.integer  "student_id",  null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
