@@ -6,11 +6,16 @@
 </nav>
 
 
-<h1>Teams homepage, should list all students and nav bar</h1>
-  <% @students.each do |student| %>
-    <%= student.first_name %>
-    <%= student.last_name %>
-    <%= student.gender %>
-    <%= student.gpa %>
-    <%= student.grade_level %>
-  <% end %>
+<h1>Teams homepage, should list all students and nav </h1>
+  <table>
+        <th>First Name</th><th>Last Name</th><th>Gender</th><th>GPA</th><th>GRADE</th>
+    <tr>
+      <% @students.each do |student| %>
+        <td><%= student.first_name %></td>
+        <td><%= student.last_name %></td>
+        <td><%= student.gender %></td>
+        <td><%= student.gpa %></td>
+        <td><%= student.grade_level %></td>
+      </tr>
+    <% end %>
+</table>

@@ -5,6 +5,7 @@ class Student < ApplicationRecord
 
   validates_presence_of :first_name, :last_name, :grade_level, :gender, :gpa
   validates :teacher_id, presence: true, allow_nil: true
+  validates_uniqueness_of :student_id
 
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
