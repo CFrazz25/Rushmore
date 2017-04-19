@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   def index
-    # @teams = Team.recent
+    @students = Student.all
   end
 
 
