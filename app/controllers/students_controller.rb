@@ -1,11 +1,17 @@
-class TeamsController < ApplicationController
+class StudentsController < ApplicationController
+
   def index
-    @students = Student.all
+    @students = Student.order(:last_name)
   end
 
 
   def new
     @team = team.new
+  end
+
+  def import
+    Student.import(params[:file])
+    redirect_to root_url, notice: "CSV file has been imported"
   end
 
   def create
