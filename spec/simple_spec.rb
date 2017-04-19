@@ -6,6 +6,6 @@ describe 'Start' do
   end
 
   it "adds two numbers" do
-   expect(2 + 1).to eq 3
+   expect(2 + 1).to eq 5
   end
 end
