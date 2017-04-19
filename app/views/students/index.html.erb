@@ -1,13 +1,13 @@
 <nav class="nav-bar">
   <%= form_tag import_students_path, multipart: true do %>
   <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
+    <%= submit_tag "Import" %>
   <% end %>
 </nav>
 
 
 <h1>Teams homepage, should list all students and nav bar</h1>
-  <% @student.each do |student| %>
+  <% @students.each do |student| %>
     <%= student.first_name %>
     <%= student.last_name %>
     <%= student.gender %>

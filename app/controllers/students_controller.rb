@@ -1,6 +1,7 @@
 class StudentsController < ApplicationController
+
   def index
-    @students = Student.all
+    @students = Student.order(:last_name)
   end
 
 
@@ -9,7 +10,8 @@ class StudentsController < ApplicationController
   end
 
   def import
-    params[:file]
+    Student.import(params[:file])
+    redirect_to root_url, notice: "CSV file has been imported"
   end
 
   def create
