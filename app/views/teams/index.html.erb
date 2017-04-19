@@ -1,0 +1,8 @@
+<h1>Teams homepage, should list all students and nav bar</h1>
+<% @student.each do |student| %>
+  <%= student.first_name %>
+  <%= student.last_name %>
+  <%= student.gender %>
+  <%= student.gpa %>
+  <%= student.grade_level %>
+<% end %>
