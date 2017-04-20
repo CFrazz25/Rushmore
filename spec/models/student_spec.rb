@@ -31,4 +31,19 @@ describe Student do
     expect(student.teacher_id).to be nil
   end
 
+  it "doesn't allow a duplicate student_id" do
+    student
+    expect{ new_student = Student.create(first_name: "Jane", last_name: "Johnson", grade_level: 11, gender: "F", gpa: 3.73, student_id: 378)}.to change(Student.all, :count).by(0)
+  end
+
+  # it "returns student's teacher's id to be nil" do
+  #   expect(student.teacher_id).to be nil
+  # end
+
+  # it "returns student's teacher's id to be nil" do
+  #   expect(student.teacher_id).to be nil
+  # end
+
+
+
 end
