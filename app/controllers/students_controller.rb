@@ -21,16 +21,22 @@ class StudentsController < ApplicationController
   # end
 
    def update
-    @teacher = Teacher.find_by(id: session[:teacher_id])
-    p @teacher
-    @student = Student.find_by(id: params[:id])
-    p session[:params]
-    if @teacher.students.count < 12
-      @student.update_attributes(teacher_id: @teacher.id)
-      redirect_to @teacher
-    else
-      @draft_error = "Can't have more than 12 students on a team"
-      redirect_to students_path
+    if params[:commit] == "Draft"
+      @students = Student.order(:last_name)
+      @teacher = Teacher.find_by(id: session[:teacher_id])
+      @student = Student.find_by(id: params[:id])
+      if @teacher.students.count < 12
+        @student.update_attributes(teacher_id: @teacher.id)
+        redirect_to @teacher
+      else
+        @draft_error = "Can't have more than 12 students on a team"
+        render :index
+      end
+    elsif params[:commit] == "Drop from Team"
+      @student = Student.find_by(id: params[:id])
+      @student.update_attributes(teacher_id: nil)
+      @teacher = Teacher.find_by(id: session[:teacher_id])
+        redirect_to @teacher
     end
   end
 

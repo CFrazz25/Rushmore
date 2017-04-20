@@ -10,10 +10,13 @@
   <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>
   <% end %>
-  <%= @draft_error %>
+  <% if @draft_error %>
+ <h1> <%= @draft_error %></h1>
+ <% end %>
 <p>*<em>Note:</em> Importing duplicate students will not save to the database a second time.</p>
   <table>
         <th>Student ID</th><th>First Name</th><th>Last Name</th><th>Gender</th><th>GPA</th><th>GRADE</th>
+
     <tr>
       <% @students.each do |student| %>
         <td><%= student.student_id %> </td>
@@ -23,8 +26,8 @@
         <td><%= student.gpa %></td>
         <td><%= student.grade_level %></td>
         <!-- if logged_in? -->
-        <%= form_for :student, url: student_path(student), method: :patch do |f| %>
-          <td><%= f.submit "Draft" %></td>
+        <%= form_for :student, url: student_path(student), method: :put do |f| %>
+          <td ><%= f.submit "Draft" %></td>
         <% end %>
     </tr>
       <% end %>
