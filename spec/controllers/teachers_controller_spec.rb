@@ -1,7 +1,5 @@
 require 'rails_helper'
 
-# RSpec.describe TeachersController, type: :controller do
-
 describe TeachersController do
   let!(:teacher) { Teacher.create!(name: "Mikey B", email: "mikeyb@gmail.com", password: "password") }
 
@@ -20,6 +18,4 @@ describe TeachersController do
       expect(response).to render_template(:show)
     end
   end
-
-
 end
