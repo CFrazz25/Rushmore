@@ -14,6 +14,8 @@ RSpec.describe SessionsController, type: :controller do
     expect(response).to have_http_status(:created)
   end
 
+
+
     it 'session[teacher_id] should equal teacher.id' do
       teacher = Teacher.create(
           name: "Brendan",
