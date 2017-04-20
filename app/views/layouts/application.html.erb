@@ -7,6 +7,15 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+    <% if !logged_in? %>
+      <%= link_to 'Login', new_session_path %>
+      <%= link_to 'Register', new_teacher_path %>
+      <%= link_to 'Home', students_path %>
+    <% else %>
+      <%= link_to current_teacher.email, user_path(current_teacher.id) %>
+      <%= link_to 'Home', students_path %>
+      <%= link_to "Log out", session_path(current_teacher.id), method: :delete %>
+    <% end %>
 
   <body>
     <%= yield %>
