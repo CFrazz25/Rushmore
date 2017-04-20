@@ -10,9 +10,9 @@
     <% if !logged_in? %>
       <%= link_to 'Home', welcome_index_path %>
     <% else %>
-      <%= link_to current_teacher.email, teacher_path(current_teacher.id) %>
       <%= link_to 'Home', students_path %>
       <%= link_to "Log out", session_path(current_teacher.id), method: :delete %>
+      <%= link_to current_teacher.email, teacher_path(current_teacher.id) %>
     <% end %>
 
   <body>

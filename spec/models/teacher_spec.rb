@@ -13,8 +13,12 @@ describe "Teacher attributes" do
       expect(teacher.email).to include("@")
     end
 
-    it "has a password"do
+    it "has a Bcrypt Object password"do
       expect(teacher.password).to be_a(BCrypt::Password)
+    end
+
+    it "password can not be blank" do
+      expect(teacher.password).to_not be_nil
     end
 
   end
