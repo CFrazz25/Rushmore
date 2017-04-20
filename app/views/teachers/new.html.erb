@@ -1,3 +1,14 @@
+<h2>User Register</h2>
+
+<% if @errors %>
+   <div class="error_container">
+       <p><strong> There is a problem</strong></p>
+       <% @errors.each do |error| %>
+         <p><%= error %></p>
+       <% end %>
+   </div>
+<% end %>
+
 <%= form_for :teacher, url: {action: "create"} do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %><br>
