@@ -11,7 +11,10 @@ class StudentsController < ApplicationController
   # end
 
   def import
-    Student.import(params[:file])
+
+    Student.import(params[:file]) unless params[:file] = nil
+    puts "PARAMSSSSSSS"
+    p params
     flash[:notice] = "Students have been uploaded!"
     redirect_to students_path
   end
