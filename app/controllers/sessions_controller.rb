@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
 
   def create
     @teacher = Teacher.authenticate(session_params[:email], session_params[:password])
-
     if @teacher
       session[:teacher_id] = @teacher.id
       redirect_to questions_path
@@ -16,7 +15,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:teacher_id)
-    # session[:teacher_id] = nil
     redirect_to questions_path
   end
 
