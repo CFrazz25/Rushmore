@@ -6,7 +6,7 @@ class TeachersController < ApplicationController
     @teacher = Teacher.new(teacher_params)
     if @teacher.save
       session[:teacher_id] = @teacher.id
-      redirect_to teams_path
+      redirect_to students_path
     else
       @errors = @teacher.errors.full_messages
       render :new
