@@ -36,7 +36,7 @@ class StudentsController < ApplicationController
       @student = Student.find_by(id: params[:id])
       @student.update_attributes(teacher_id: nil)
       @teacher = Teacher.find_by(id: session[:teacher_id])
-        redirect_to @teacher
+        redirect_to students_path
     end
   end
 
