@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
   def index
     @teacher = Teacher.find_by(id: params[:id])
-    @students = @teacher.students.all 
+    @students = @teacher.students.all
   end
 
   def update
@@ -22,7 +22,4 @@ class TeamsController < ApplicationController
     @student.update_attributes(teacher_id: nil)
       redirect_to @teacher
   end
-
-
-
 end

@@ -2,6 +2,7 @@ class Teacher < ApplicationRecord
   has_many :students
 
   validates_presence_of :name, :email, :hashed_password
+  validates_uniqueness_of :email
 
   def password
     @password ||= BCrypt::Password.new(hashed_password)
