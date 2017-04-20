@@ -10,7 +10,11 @@ describe "Teacher attributes" do
     end
 
     it "has an email address" do
-      ecpect(teacher.email).to
+      expect(teacher.email).to include("@")
+    end
+
+    it "has a password"do
+      expect(teacher.password).to be_a(BCrypt::Password)
     end
 
   end

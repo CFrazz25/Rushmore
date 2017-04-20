@@ -15,10 +15,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:teacher_id)
-
-    # session[:teacher_id] = nil
     redirect_to :root
-
   end
 
   private
