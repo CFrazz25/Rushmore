@@ -15,6 +15,32 @@ ActiveRecord::Schema.define(version: 20170419195250) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "answers", force: :cascade do |t|
+    t.string   "answer_body",                 null: false
+    t.boolean  "star",        default: false
+    t.integer  "user_id",                     null: false
+    t.integer  "question_id",                 null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "comment_body",     null: false
+    t.integer  "user_id",          null: false
+    t.integer  "commentable_id",   null: false
+    t.string   "commentable_type", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "title",         null: false
+    t.string   "question_body", null: false
+    t.integer  "user_id",       null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "students", force: :cascade do |t|
     t.string   "first_name",  null: false
     t.string   "last_name",   null: false
@@ -33,6 +59,23 @@ ActiveRecord::Schema.define(version: 20170419195250) do
     t.string   "hashed_password", null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "username",        null: false
+    t.string   "email",           null: false
+    t.string   "hashed_password", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "value",        null: false
+    t.integer  "user_id",      null: false
+    t.integer  "votable_id",   null: false
+    t.string   "votable_type", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end

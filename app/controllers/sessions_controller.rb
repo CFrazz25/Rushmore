@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     @teacher = Teacher.authenticate(session_params[:email], session_params[:password])
     if @teacher
       session[:teacher_id] = @teacher.id
-      redirect_to questions_path
+      redirect_to students_path
     else
       @errors = ["That teacher does not exist."]
       render :new
@@ -15,7 +15,10 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:teacher_id)
-    redirect_to questions_path
+
+    # session[:teacher_id] = nil
+    redirect_to root
+
   end
 
   private
