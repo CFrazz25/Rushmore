@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-# Teacher.create!([
-#     { name: Faker::Internet.user_name, email: Faker::Internet.email, hashed_password: 'password' }
-#     ])
+Code.create!([
+    { secret_code: "54869", active: true }
+    ])
 
 # 60.times do
 #   Student.create!([ {:first_name => Faker::Name.name,
