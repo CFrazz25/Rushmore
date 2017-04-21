@@ -12,4 +12,10 @@ class Student < ApplicationRecord
       Student.create row.to_hash
     end
   end
+
+  def ineligible?
+    if self.gpa < 2.0
+      return true
+    end
+  end
 end
