@@ -9,7 +9,7 @@
 
 <h1>Teams homepage, should list all students and nav </h1>
 <div id="main-table-background">
-  <div id="main-table-content"
+  <div id="main-table-content">
     <% if flash[:notice] %>
       <div class="notice"><%= flash[:notice] %></div>
     <% end %>
@@ -19,12 +19,7 @@
     <% end %>
 
 
-  <!-- drop down for sorting -->
-<!--   <%= form_for #:student, url: students_path do |f| %>
 
-  <%= #f.select :temperature, [['Hot','hot'],['Medium','medium'],['Cold','cold']] %>
-  <%= f.submit %>
-<% #end %> -->
 
 
 <p>*<em>Note:</em> Importing duplicate students will not save to the database a second time.</p>
@@ -42,10 +37,14 @@
         <% if student.teacher_id != nil %>
         <td><em>Has already been drafted by:</em><%= link_to student.teacher.name, teacher_path(student.teacher) %></td>
           <% end %>
+          <% if student.ineligible? %>
+          <td>Student is ineligible to be drafted. They need to increase their gpa by <%= (2.0 - student.gpa).round(2) %> to become eligible.</td>
+          <% else %>
           <% if logged_in? && student.teacher_id == nil && student.on_finalized_team == false %>
             <%= form_for :student, url: student_path(student), method: :put do |f| %>
           <td ><%= f.submit "Draft" %></td>
-
+            <% end %>
+            <% end %>
             <% end %>
         </tr>
       <% end %>

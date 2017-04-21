@@ -29,17 +29,38 @@ class Teacher < ApplicationRecord
     end
 
     #checking grade level
-    
+    grade_level9 = students.select{ |student| student.grade_level == 9}
+    grade_level10 = students.select{ |student| student.grade_level == 10}
+    grade_level11 = students.select{ |student| student.grade_level == 11}
+    if grade_level11.count < 3 || grade_level10.count < 3 || grade_level9.count < 3 
+      return "You need at least 2 selections from each grade level."
+    end
 
     #checking gpa
    avg_gpa = students.reduce(0){|sum, student| sum + student.gpa}/students.count
     if avg_gpa < 2.5
-      return  finalize_errors = "You need to choose some students with a higher gpa to make teams as even as possible."
+      return  finalize_errors = "You need to choose some students with a higher gpa to make teams as even as possible. Look for some over 2.5"
     elsif avg_gpa > 3.5
-      return  finalize_errors = "Hey hey, cheater, you can't pick all the best students, we need to make this fair. Look for some gpa's under 3."
+      return  finalize_errors = "Hey hey, cheater, you can't pick all the best students, we need to make this fair. Look for some gpa's under 3.5"
     end
 
      return true
 
   end
+
+  def current_teams_avg_gpa(students)
+    avg_gpa = students.reduce(0){|sum, student| sum + student.gpa}/students.count
+  end
+
+  def current_males_on_team(students)
+    genders = students.select{ |student| student.gender == "M"}
+    return genders.count
+  end
+
+  def current_females_on_team(students)
+    genders = students.select{ |student| student.gender == "F"}
+    return genders.count
+  end
+
+
 end
