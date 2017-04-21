@@ -4242,11 +4242,11 @@ nav .button-collapse i {
 
 nav .brand-logo {
   position: absolute;
-  color: #fff;
   display: inline-block;
   font-size: 2.1rem;
   padding: 0;
   white-space: nowrap;
+  background-image: url('/assets/wolfhat.png')
 }
 
 nav .brand-logo.center {

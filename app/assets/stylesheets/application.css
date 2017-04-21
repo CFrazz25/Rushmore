@@ -8,16 +8,13 @@
   background-color: #FF6347;
 }*/
 
-/*#main-table-background {
+#main-table-background {
   padding-left: 5%;
   margin-left: auto;
   float: left;
-  background-image: url('/assets/flag.png');
+  background-image: url('/assets/images/wolfhat.png');
 }
 
-#main-table-content {
-
-}*/
 
 .table {
   display: table;
