@@ -20,8 +20,6 @@
 
 
 
-
-
 <p>*<em>Note:</em> Importing duplicate students will not save to the database a second time.</p>
   <table>
     <th>Student ID</th><th>First Name</th><th>Last Name</th><th>Gender</th><th>GPA</th><th>GRADE</th>
@@ -44,7 +42,9 @@
             <%= form_for :student, url: student_path(student), method: :put do |f| %>
           <td ><%= f.submit "Draft" %></td>
             <% end %>
+
             <% end %>
+
             <% end %>
         </tr>
       <% end %>
