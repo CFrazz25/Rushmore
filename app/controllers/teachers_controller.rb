@@ -5,7 +5,7 @@ class TeachersController < ApplicationController
   def create
     @code = Code.check_code(teacher_params[:code])
     p @code
-    @teacher = Teacher.new(teacher_params[:name, :email, :password])
+    @teacher = Teacher.new(name: teacher_params[:name], email: teacher_params[:email], password: teacher_params[:password])
     if @code == true
       if @teacher.save
         session[:teacher_id] = @teacher.id
@@ -16,7 +16,7 @@ class TeachersController < ApplicationController
       end
     else
       @errors = ["Invalid registration code."]
-      render :new
+      redirect_to welcome_index_path
     end
   end
 

@@ -9,7 +9,7 @@ class Code < ApplicationRecord
     return secret_code.join("")
   end
 
-  def check_code(input)
+  def self.check_code(input)
     active_code = Code.find_by(secret_code: input)
     if active_code
       if active_code.active == true
