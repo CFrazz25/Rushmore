@@ -8,14 +8,6 @@ RSpec.describe SessionsController, type: :controller do
       session[:teacher_id] = nil
     end
 
-  it 'creates a session id' do
-    post :create, {email: "teacher@example.com", password: "poop"}
-
-    expect(response).to have_http_status(:created)
-  end
-
-
-
     it 'session[teacher_id] should equal teacher.id' do
       teacher = Teacher.create(
           name: "Brendan",
