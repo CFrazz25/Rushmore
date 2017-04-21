@@ -11,9 +11,10 @@
         <td><%= student.gender %></td>
         <td><%= student.gpa %></td>
         <td><%= student.grade_level %></td>
-        <!-- if logged_in? -->
+       <% if logged_in? && student.teacher.id == session[:teacher_id] && student.on_finalized_team == false %>
         <%= form_for :student, url: student_path(student), method: :patch do |f| %>
           <td><%= f.submit "Drop from Team" %></td>
+        <% end %>
         <% end %>
     </tr>
       <% end %>

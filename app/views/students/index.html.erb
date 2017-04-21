@@ -30,7 +30,10 @@
         <td><%= student.gender %></td>
         <td><%= student.gpa %></td>
         <td><%= student.grade_level %></td>
-          <% if logged_in? %>
+        <% if student.teacher_id != nil %>
+        <td><em>Has already been drafted by:</em><%= link_to student.teacher.name, teacher_path(student.teacher) %></td>
+          <% end %>
+          <% if logged_in? && student.teacher_id == nil && student.on_finalized_team == false %>
             <%= form_for :student, url: student_path(student), method: :put do |f| %>
           <td ><%= f.submit "Draft" %></td>
             <% end %>
