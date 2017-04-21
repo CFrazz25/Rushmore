@@ -18,7 +18,7 @@ class Teacher < ApplicationRecord
     return teacher if teacher && teacher.password == password
   end
 
-  def ineligable
+  def ineligible
     students = Students.all
     students.where("gpa < ?", 2.0)
   end
