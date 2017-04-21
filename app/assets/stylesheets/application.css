@@ -12,7 +12,7 @@
   padding-left: 5%;
   margin-left: auto;
   float: left;
-  background-image: url('/assets/images/wolfhat.png');
+  background: image-url('wolfhat.png');
 }
 
 
@@ -61,7 +61,7 @@
   font-color: blue;
 
   padding: 55px 25px;
-  background-image: url('/assets/mount_rushmore.png');
+  background: image-url('wolfhat.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
 
@@ -101,5 +101,5 @@ h1 {
 }
 
 * body{
-  background-image: url('/assets/freedom_wolf.jpg');
+  background-image: url('http://imgur.com/a/cBkJj');
 }
