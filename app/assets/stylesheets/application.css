@@ -1,3 +1,5 @@
+/** { border: 1px solid black; }
+*/
 /*#team-table {
   padding-right: 10%;
   margin-top: 3.5%;
@@ -6,30 +8,27 @@
   background-color: #FF6347;
 }*/
 
-/*#main-table-background {
+#main-table-background {
   padding-left: 5%;
   margin-left: auto;
   float: left;
-  background-image: url('/assets/flag.png');
+  background-image: url('/assets/images/wolfhat.png');
 }
 
-#main-table-content {
-
-}*/
 
 .table {
   display: table;
-  margin: 0 auto;
+  margin: 0;
   color: blue;
 }
 
-.table1 {
+#main {
   display: table;
-  margin: 0 auto;
+  margin: 0;
   float: left;
 }
 
-.table2 {
+#sidebar {
   display: table;
   margin: 0 auto;
   float: right;

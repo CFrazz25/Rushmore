@@ -1,10 +1,22 @@
 <table id="team-table" class="table">
+  <h4>Here is your current line up.</h4>
   <th>Student ID</th><th>First Name</th><th>Last Name</th><th>Gender</th><th>GPA</th><th>GRADE</th>
     <tr>
-      <p>You currently have <%= @teacher.students.count %> students on your team.</p> 
-      <p>You current team's average gpa is: <%= @teacher.current_teams_avg_gpa(@teacher.students).round(2) %></p> 
-      <p>You currently have <%= @teacher.current_females_on_team(@teacher.students) %>  females on your team, and <%= @teacher.current_males_on_team(@teacher.students) %> males on your team.</p> 
+      <% if @teacher.students.count > 0 %>
+      <p>You currently have <%= @teacher.students.count %> students on your team.</p>
+      <p>You current team's average gpa is: <%= @teacher.current_teams_avg_gpa(@teacher.students).round(2) %></p>
+      <p>You currently have <%= @teacher.current_females_on_team(@teacher.students) %>  females on your team, and <%= @teacher.current_males_on_team(@teacher.students) %> males on your team.</p>
 
+      <p>You currently have <%= @teacher.current_9th_graders_on_team(@teacher.students) %>  9th graders on your team, <%= @teacher.current_10th_graders_on_team(@teacher.students) %> 10th graders on your team and <%= @teacher.current_11th_graders_on_team(@teacher.students) %> 11th graders on your team.</p>
+      <% end %>
+
+<%= @finalize %>
+<h1><%= @finalize_errors %></h1>
+<% if @teacher.students.count == 12 %>
+    <%= form_for :teacher, url: teacher_path(@teacher), method: :patch do |f| %>
+        <%= f.submit "Finalize Draft!" %>
+    <% end %>
+<% end %>
       <% if @teacher %>
         <% @teacher.students.each do |student| %>
           <td><%= student.student_id %> </td>
@@ -24,10 +36,3 @@
     <% end %>
 </table>
 
-<%= @finalize %>
-<h1><%= @finalize_errors %></h1>
-<% if @teacher.students.count == 12 %>
-    <%= form_for :teacher, url: teacher_path(@teacher), method: :patch do |f| %>
-        <%= f.submit "Finalize Draft!" %>
-    <% end %>
-<% end %>

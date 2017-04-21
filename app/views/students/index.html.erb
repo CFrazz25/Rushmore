@@ -1,15 +1,20 @@
 <% if logged_in? %>
-  <nav class="nav-bar">
+  <nav class="upload-nav-bar">
     <%= form_tag import_students_path, multipart: true do %>
     <%= file_field_tag :file %>
-    <%= submit_tag "Import" %>
+    <a class="waves-effect waves-light btn"><%= submit_tag "Import" %></a>
+
     <% end %>
   </nav>
 <% end %>
 
-<div class="container" id="table1">
 <h1>Teams homepage, should list all students and nav </h1>
-  <div id="main-table-content"class=" responsive-table highlight bordered striped">
+  <div id="sidebar" class="responsive-table highlight bordered striped table2">
+    <%= render "students/current_team" %>
+  </div>
+
+<div id="main">
+  <div id="main-table-content"class="col s6 responsive-table highlight bordered striped">
     <% if flash[:notice] %>
       <div class="notice"><%= flash[:notice] %></div>
     <% end %>
@@ -17,10 +22,13 @@
     <% if @draft_error %>
       <h1> <%= @draft_error %></h1>
     <% end %>
+  </div>
+
 
 <p>*<em>Note:</em> Importing duplicate students will not save to the database a second time.</p>
   <table>
-    <th>Student ID</th><th>First Name</th><th>Last Name</th><th>Gender</th><th>GPA</th><th>GRADE</th>
+    <div class="col s6">
+    <th>Student ID</th><th>First Name</th><th>Last Name</th><th>Gender</th><th>GPA</th><th>GRADE</th><th>Draft Status</th>
     <tr>
       <% @students.each do |student| %>
         <td><%= student.student_id %> </td>
@@ -31,14 +39,10 @@
         <td><%= student.grade_level %></td>
         <% if student.teacher_id != nil %>
         <td><em>Has already been drafted by:</em><%= link_to student.teacher.name, teacher_path(student.teacher) %></td>
-
-          <% end %>
-          <% if student.ineligible? %>
-          <td>Student is ineligible to be drafted. They need to increase their gpa by <%= (2.0 - student.gpa).round(2) %> to become eligible.</td>
-          <% else %>
-
         <% end %>
-
+          <% if student.ineligible? %>
+            <td>Student is ineligible to be drafted. They need to increase their gpa by <%= (2.0 - student.gpa).round(2) %> to become eligible.</td>
+          <% else %>
           <% if logged_in? && student.teacher_id == nil && student.on_finalized_team == false %>
             <%= form_for :student, url: student_path(student), method: :put do |f| %>
           <td ><%= f.submit "Draft" %></td>
@@ -51,8 +55,5 @@
       <% end %>
     </table>
   </div>
-
 </div>
-  <div id="table2" class="container col s6 responsive-table highlight bordered striped table2">
-    <%= render "students/current_team" %>
-  </div>
+
