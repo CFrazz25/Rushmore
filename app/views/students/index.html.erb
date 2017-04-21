@@ -7,9 +7,13 @@
   </nav>
 <% end %>
 
-<div class="container" id="table1">
 <h1>Teams homepage, should list all students and nav </h1>
-  <div id="main-table-content"class=" responsive-table highlight bordered striped">
+  <div id="sidebar" class="responsive-table highlight bordered striped table2">
+    <%= render "students/current_team" %>
+  </div>
+
+<div id="main">
+  <div id="main-table-content"class="col s6 responsive-table highlight bordered striped">
     <% if flash[:notice] %>
       <div class="notice"><%= flash[:notice] %></div>
     <% end %>
@@ -17,9 +21,12 @@
     <% if @draft_error %>
       <h1> <%= @draft_error %></h1>
     <% end %>
+  </div>
+
 
 <p>*<em>Note:</em> Importing duplicate students will not save to the database a second time.</p>
   <table>
+    <div class="col s6">
     <th>Student ID</th><th>First Name</th><th>Last Name</th><th>Gender</th><th>GPA</th><th>GRADE</th><th>Draft Status</th>
     <tr>
       <% @students.each do |student| %>
@@ -47,8 +54,5 @@
       <% end %>
     </table>
   </div>
-
 </div>
-  <div id="table2" class="container responsive-table highlight bordered striped table2">
-    <%= render "students/current_team" %>
-  </div>
+

@@ -32,7 +32,7 @@ class Teacher < ApplicationRecord
     grade_level9 = students.select{ |student| student.grade_level == 9}
     grade_level10 = students.select{ |student| student.grade_level == 10}
     grade_level11 = students.select{ |student| student.grade_level == 11}
-    if grade_level11.count < 3 || grade_level10.count < 3 || grade_level9.count < 3 
+    if grade_level11.count < 3 || grade_level10.count < 3 || grade_level9.count < 3
       return "You need at least 2 selections from each grade level."
     end
 
@@ -60,6 +60,21 @@ class Teacher < ApplicationRecord
   def current_females_on_team(students)
     genders = students.select{ |student| student.gender == "F"}
     return genders.count
+  end
+
+  def current_9th_graders_on_team(students)
+    grade_level9 = students.select{ |student| student.grade_level == 9}
+    return grade_level9.count
+  end
+
+  def current_10th_graders_on_team(students)
+    grade_level10 = students.select{ |student| student.grade_level == 10}
+    return grade_level10.count
+  end
+
+  def current_11th_graders_on_team(students)
+    grade_level11 = students.select{ |student| student.grade_level == 11}
+    return grade_level11.count
   end
 
 

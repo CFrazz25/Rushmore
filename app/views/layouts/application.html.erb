@@ -8,17 +8,25 @@
 
     <title>Rushmore</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-    <% if !logged_in? %>
-      <%= link_to 'Home', welcome_index_path %>
-    <% else %>
-      <%= link_to 'Home', students_path %>
-      <%= link_to "Log out", session_path(current_teacher.id), method: :delete %>
-      <%= link_to current_teacher.email, teacher_path(current_teacher.id) %>
+
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo right">Logo</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <% if !logged_in? %>
+          <li><%= link_to 'Home', welcome_index_path %></li>
+        <% else %>
+          <li><%= link_to 'Home', students_path %></li>
+          <li><%= link_to "Log out", session_path(current_teacher.id), method: :delete %></li>
+          <li><%= link_to current_teacher.email, teacher_path(current_teacher.id) %></li>
     <% end %>
+      </ul>
+    </div>
+  </nav>
+
 
   <body class="body">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
