@@ -8,6 +8,7 @@ class CreateStudents < ActiveRecord::Migration[5.0]
       t.float :gpa, null: false
       t.integer :teacher_id, null: true
       t.integer :student_id, null: false
+      t.boolean :on_finalized_team, default: false, null: true
 
       t.timestamps null: false
     end
