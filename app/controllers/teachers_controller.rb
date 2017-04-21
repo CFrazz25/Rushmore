@@ -3,12 +3,19 @@ class TeachersController < ApplicationController
   end
 
   def create
-    @teacher = Teacher.new(teacher_params)
-    if @teacher.save
-      session[:teacher_id] = @teacher.id
-      redirect_to students_path
+    @code = Code.check_code(teacher_params[:code])
+    p @code
+    @teacher = Teacher.new(teacher_params[:name, :email, :password])
+    if @code == true
+      if @teacher.save
+        session[:teacher_id] = @teacher.id
+        redirect_to students_path
+      else
+        @errors = @teacher.errors.full_messages
+        render :new
+      end
     else
-      @errors = @teacher.errors.full_messages
+      @errors = ["Invalid registration code."]
       render :new
     end
   end
@@ -35,6 +42,6 @@ class TeachersController < ApplicationController
 
   private
   def teacher_params
-    params.require(:teacher).permit(:name, :email, :password)
+    params.require(:teacher).permit(:name, :email, :password, :code)
   end
 end
