@@ -1,12 +1,12 @@
-#team-table {
+/*#team-table {
   padding-right: 10%;
   margin-top: 3.5%;
   margin-right: auto;
   float: right;
   background-color: #FF6347;
-}
+}*/
 
-#main-table-background {
+/*#main-table-background {
   padding-left: 5%;
   margin-left: auto;
   float: left;
@@ -14,22 +14,36 @@
 }
 
 #main-table-content {
-  
-}
+
+}*/
 
 .table {
-  display: table;   
+  display: table;
   margin: 0 auto;
   color: blue;
 }
 
+.table1 {
+  display: table;
+  margin: 0 auto;
+  float: left;
+}
+
+.table2 {
+  display: table;
+  margin: 0 auto;
+  float: right;
+
+}
 .body {
-  font-family: Lato, Arial; 
+  font-family: Lato, Arial;
   font-color: blue;
 
   padding: 55px 25px;
   background-image: url('/assets/mount_rushmore.png');
-  opacity: .5;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
 }
 
 h1 {
@@ -38,4 +52,5 @@ h1 {
     font-weight: normal;
     text-transform: uppercase;
 }
+
 
