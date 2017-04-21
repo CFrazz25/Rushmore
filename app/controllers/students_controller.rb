@@ -27,7 +27,8 @@ class StudentsController < ApplicationController
       @student = Student.find_by(id: params[:id])
       if @teacher.students.count < 12
         @student.update_attributes(teacher_id: @teacher.id)
-        redirect_to @teacher
+        # redirect_to @
+        redirect_to :back
       else
         @draft_error = "Can't have more than 12 students on a team"
         render :index
