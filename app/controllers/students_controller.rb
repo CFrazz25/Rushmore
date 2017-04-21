@@ -18,7 +18,8 @@ class StudentsController < ApplicationController
     if params[:commit] == "Draft"
       if @teacher.students.count < 12
         @student.update_attributes(teacher_id: @teacher.id)
-        redirect_to @teacher
+        # redirect_to @
+        redirect_to :back
       else
         @draft_error = "Can't have more than 12 students on a team"
         render :index
