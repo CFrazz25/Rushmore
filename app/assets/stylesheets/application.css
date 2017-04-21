@@ -1,15 +1,41 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+#team-table {
+  padding-right: 10%;
+  margin-top: 3.5%;
+  margin-right: auto;
+  float: right;
+  background-color: #FF6347;
+}
+
+#main-table-background {
+  padding-left: 5%;
+  margin-left: auto;
+  float: left;
+  background-image: url('/assets/flag.png');
+}
+
+#main-table-content {
+  
+}
+
+.table {
+  display: table;   
+  margin: 0 auto;
+  color: blue;
+}
+
+.body {
+  font-family: Lato, Arial; 
+  font-color: blue;
+
+  padding: 55px 25px;
+  background-image: url('/assets/mount_rushmore.png');
+  opacity: .5;
+}
+
+h1 {
+    font-weight: normal;
+    font-size: 25px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+

@@ -8,15 +8,16 @@
 <% end %>
 
 <h1>Teams homepage, should list all students and nav </h1>
+<div id="main-table-background">
+  <div id="main-table-content"
+    <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
 
-<div id="main">
-  <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
-  <% end %>
+    <% if @draft_error %>
+      <h1> <%= @draft_error %></h1>
+    <% end %>
 
-  <% if @draft_error %>
-    <h1> <%= @draft_error %></h1>
-  <% end %>
 
   <!-- drop down for sorting -->
 <!--   <%= form_for #:student, url: students_path do |f| %>
@@ -44,13 +45,14 @@
           <% if logged_in? && student.teacher_id == nil && student.on_finalized_team == false %>
             <%= form_for :student, url: student_path(student), method: :put do |f| %>
           <td ><%= f.submit "Draft" %></td>
+
             <% end %>
-          <% end %>
-      </tr>
-    <% end %>
-  </table>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 </div>
 
-<div id="sidebar">
-  <%= render "students/current_team" %>
-</div>
+  <div id="sidebar">
+    <%= render "students/current_team" %>
+  </div>

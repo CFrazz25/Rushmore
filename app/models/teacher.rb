@@ -18,6 +18,7 @@ class Teacher < ApplicationRecord
     return teacher if teacher && teacher.password == password
   end
 
+
   def finalize_draft(students)
     #checking gender
     genders = students.select{ |student| student.gender == "M"}
@@ -39,5 +40,6 @@ class Teacher < ApplicationRecord
     end
 
      return true
+
   end
 end
