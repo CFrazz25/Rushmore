@@ -1,8 +1,9 @@
 <% if logged_in? %>
-  <nav class="nav-bar">
+  <nav class="upload-nav-bar">
     <%= form_tag import_students_path, multipart: true do %>
     <%= file_field_tag :file %>
-    <%= submit_tag "Import" %>
+    <a class="waves-effect waves-light btn"><%= submit_tag "Import" %></a>
+
     <% end %>
   </nav>
 <% end %>
