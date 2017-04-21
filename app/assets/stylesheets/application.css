@@ -19,13 +19,13 @@
 
 .table {
   display: table;
-  margin: 0 auto;
+  margin: 0;
   color: blue;
 }
 
 .table1 {
   display: table;
-  margin: 0 auto;
+  margin: 0;
   float: left;
 }
 
