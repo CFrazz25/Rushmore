@@ -1,13 +1,15 @@
 <table id="team-table" class="table wrapme">
-  <h4>Here is your current line up.</h4>
-  <th>Student ID</th><th>First Name</th><th>Last Name</th><th>Gender</th><th>GPA</th><th>GRADE</th>
+  <% if @teacher.students.count > 0 %>
+    <p><br>
+    </p><br>
+    <h4>Here is your current line up.</h4>
+    <th>Student ID</th><th>First Name</th><th>Last Name</th><th>Gender</th><th>GPA</th><th>GRADE</th>
     <tr>
-      <% if @teacher.students.count > 0 %>
-      <p>You currently have <%= @teacher.students.count %> students on your team.</p>
-      <p>You current team's average gpa is: <%= @teacher.current_teams_avg_gpa(@teacher.students).round(2) %></p>
-      <p>You currently have <%= @teacher.current_females_on_team(@teacher.students) %>  females on your team, and <%= @teacher.current_males_on_team(@teacher.students) %> males on your team.</p>
+      <p>Your team consists of <%= @teacher.current_females_on_team(@teacher.students) %>  females, and <%= @teacher.current_males_on_team(@teacher.students) %> males.</p>
 
-      <p>You currently have <%= @teacher.current_9th_graders_on_team(@teacher.students) %>  9th graders on your team, <%= @teacher.current_10th_graders_on_team(@teacher.students) %> 10th graders on your team and <%= @teacher.current_11th_graders_on_team(@teacher.students) %> 11th graders on your team.</p>
+      <p>You have <%= @teacher.current_9th_graders_on_team(@teacher.students) %> freshman, <%= @teacher.current_10th_graders_on_team(@teacher.students) %> sophomore, and <%= @teacher.current_11th_graders_on_team(@teacher.students) %> juniors on your team.</p>
+
+      <p>You currently have <%= @teacher.students.count %> students on your team with an average GPA of <%= @teacher.current_teams_avg_gpa(@teacher.students).round(2) %></p>
       <% end %>
 
 <%= @finalize %>
