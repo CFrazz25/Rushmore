@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # resources :teams  =>  we changed this from students
   resources :sessions
   resources :welcome
+  resources :codes
 
   root "welcome#index"
 end
