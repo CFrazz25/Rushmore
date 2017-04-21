@@ -27,11 +27,14 @@ class Teacher < ApplicationRecord
       return finalize_errors = "You need an even amount of Male and Female, you need to add #{genders.count - 6} more female students"
     end
 
+    #checking grade level
+    
+
     #checking gpa
    avg_gpa = students.reduce(0){|sum, student| sum + student.gpa}/students.count
-    if avg_gpa < 2.0
+    if avg_gpa < 2.5
       return  finalize_errors = "You need to choose some students with a higher gpa to make teams as even as possible."
-    elsif avg_gpa > 3.0
+    elsif avg_gpa > 3.5
       return  finalize_errors = "Hey hey, cheater, you can't pick all the best students, we need to make this fair. Look for some gpa's under 3."
     end
 

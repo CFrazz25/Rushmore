@@ -18,6 +18,14 @@
     <h1> <%= @draft_error %></h1>
   <% end %>
 
+  <!-- drop down for sorting -->
+<!--   <%= form_for #:student, url: students_path do |f| %>
+
+  <%= #f.select :temperature, [['Hot','hot'],['Medium','medium'],['Cold','cold']] %>
+  <%= f.submit %>
+<% #end %> -->
+
+
 <p>*<em>Note:</em> Importing duplicate students will not save to the database a second time.</p>
   <table>
     <th>Student ID</th><th>First Name</th><th>Last Name</th><th>Gender</th><th>GPA</th><th>GRADE</th>
