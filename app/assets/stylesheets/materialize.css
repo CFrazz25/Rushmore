@@ -4219,6 +4219,7 @@ nav i.material-icons {
 nav .nav-wrapper {
   position: relative;
   height: 100%;
+  background-color: #357042
 }
 
 @media only screen and (min-width: 993px) {
@@ -4383,10 +4384,12 @@ nav .input-field label.active i {
 @media only screen and (min-width: 601px) {
   nav.nav-extended .nav-wrapper {
     min-height: 64px;
+    background-color: #357042;
   }
   nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     height: 64px;
     line-height: 64px;
+    background-color: #357042;
   }
   .navbar-fixed {
     height: 64px;

@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20170421173409) do
   enable_extension "plpgsql"
 
   create_table "codes", force: :cascade do |t|
-    t.string   "secret_code"
+    t.string   "secret_code", null: false
     t.boolean  "active"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
